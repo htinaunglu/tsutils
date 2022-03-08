@@ -49,6 +49,7 @@ def Conversion(var = 'Auto'): #Conversion Function for labeling the plots
         for value, i in zip(values, range(0, len(values))):
             conversion[value] = i
         return conversion
+
 def last_value_grab(df):
     last = df.GazeOnElementId.iloc[-1]
     kk = 0
@@ -61,6 +62,10 @@ def last_value_grab(df):
             kk = i
             break
     return kk
+
+def resize_down(a, newlen):
+    a = np.asarray(a)
+    return a[np.round(np.linspace(0,len(a)-1,newlen)).astype(int)]
 
 def MatplotlibClearMemory(): # Clear Matplotlib to prevent memory issues
     allfignums = plt.get_fignums()
@@ -145,7 +150,6 @@ def step2(df,df1,df2, name, kk, dir):
         plot_step2(df,df1,df2,conversion_X,conversion_Y, name, kk, dir)
     except:
         traceback.print_exc()
-
 
 
 
