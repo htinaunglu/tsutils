@@ -100,10 +100,10 @@ if __name__ == "__main__":
         label_format = {'fontsize': 12, 'fontweight': 'bold'}
         title_format = {'fontsize': 16, 'fontweight': 'bold'}
         #ax[0].plot(np.arange(0, len(df)), df1, color="blue",label="Input")
-        ax[0].plot(np.arange(0, len(df)-kk), df1[0:-kk], color="red",label="Input")
+        ax[0].plot(np.arange(0, len(df)-kk), df1[:-kk], color="red", label="Input")
         ax[0].plot(np.arange(len(df)-kk, len(df)), df1[-kk:], color="blue",label="Input")
         #ax[1].plot(np.arange(0, len(df)), df2, color="Blue",label="Choice")
-        ax[1].plot(np.arange(0, len(df)-kk), df2[0:-kk], color="blue",label="Output")
+        ax[1].plot(np.arange(0, len(df)-kk), df2[:-kk], color="blue", label="Output")
         ax[1].plot(np.arange(len(df)-kk, len(df)), df2[-kk:], color="green",label="Output")
         ax[0].yaxis.grid()  # horizontal lines
         ax[1].yaxis.grid()
@@ -144,7 +144,7 @@ if __name__ == "__main__":
             conversion_X = Conversion('X')
             conversion_Y = Conversion('Y')
             plot_step2(df,df1,df2,conversion_X,conversion_Y, name, kk)
-        except:
+        except Exception:
             traceback.print_exc()
 
 
